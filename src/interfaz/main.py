@@ -4,24 +4,7 @@ Created on Fri May 26 13:32:54 2023
 
 @author: an.medinacolmenero
 """
-"""
-import threading
 
-def run_file():
-    # Code to run your Python file
-    exec(open('buttons_Vpython.py').read())
-
-# Create a new thread
-thread = threading.Thread(target=run_file)
-
-# Start the thread
-thread.start()
-
-# Main thread continues executing other code
-
-# Wait for the thread to complete (optional)
-#thread.join()
-"""
 
 import subprocess
 import threading as td
