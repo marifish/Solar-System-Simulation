@@ -24,4 +24,4 @@ class GasPlanet(CelestialBody):
         print(f"Color: {self._m_color}")
         print(f"Elements: {self._m_elements}")
         print(f"Rings: {self._m_rings}")
-In this updated code, the
+
