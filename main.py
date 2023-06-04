@@ -40,7 +40,7 @@ for i in df.index:
             mass       = mass,
             color      = color,
             #elements   = [],
-            #atmosphere = [],
+            #atmosphere = [],git stat
             #moons      = [])
             )
     
@@ -56,8 +56,6 @@ for i in range(0,seconds,dt):
 
 import matplotlib.pyplot as plt
 
-
-#bodies = [bodies[8]]
 for body in bodies:
     data = np.transpose(body.get_trayectory())
     plt.plot(data[0], data[1])
