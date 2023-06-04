@@ -1,7 +1,18 @@
-from CelestialBody import*
+from CelestialBody import *
 
 class Planet(CelestialBody):
-    def __init__(self, name, shape, position, velocity, radius, mass, color, elements, atmosphere, moons):
+    def __init__(self,
+                 name       = "body",
+                 shape      = "spherical",
+                 position   = np.array([0,0,0]),
+                 velocity   = np.array([0,0,0]),
+                 radius     = 1000, 
+                 mass = 1000,
+                 color      = "red",
+                 elements   = [],
+                 atmosphere = [],
+                 moons      = []):
+        
         super().__init__(name, shape, position, velocity, radius, mass, color, elements)
         self._m_atmosphere = atmosphere
         self._m_moons = moons

@@ -3,16 +3,25 @@ import numpy as np
 G = 6.67430e-11
 
 class CelestialBody:
-    def __init__(self, name, shape, position, velocity, radius, mass, color, elements):
+    def __init__(self, 
+                 name     = "body",
+                 shape    = "spherical",
+                 position = np.array([0,0,0]),
+                 velocity = np.array([0,0,0]),
+                 radius   = 1000, 
+                 mass     = 1000,
+                 color    = "red",
+                 elements = []):
+        
         # Initialize the attributes of the celestial body
-        self._m_name = name
-        self._m_shape = shape
-        self._m_position = position
-        self._m_velocity = velocity
-        self._m_radius = radius
-        self._m_mass = mass
-        self._m_color = color
-        self._m_elements = elements
+        self._m_name       = name
+        self._m_shape      = shape
+        self._m_position   = position
+        self._m_velocity   = velocity
+        self._m_radius     = radius
+        self._m_mass       = mass
+        self._m_color      = color
+        self._m_elements   = elements
         self._m_trayectory = [position]
 
     # Getters
@@ -70,28 +79,35 @@ class CelestialBody:
 
     # Member functions
     
-    def _calculate_acceleration(self, bodies):
+    def calculate_acceleration(self, bodies):
         
         acceleration = np.array([0,0,0])
         
         for body in bodies:
-            if body != self:
-                vec_body_self = body.get_position() - self._m_position
+            if  body != self:
+                vec_body_self = body.get_position() - self.get_position()
                 distance = np.linalg.norm(vec_body_self)
-                accel_body_self = (G * body.get_mass()) * vec_body_self / (distance ** 3)
-                acceleration += accel_body_self
+                accel_body_self = (G * body.get_mass() * vec_body_self) / (distance ** 3)
+                acceleration = acceleration + accel_body_self
     
         return acceleration
     
-    def _calculate_new_position(self, dt):
+    def calculate_new_position(self, dt):
         # Perform calculation to update the position
-        self._m_position += self._m_velocity*dt
+        self._m_position = self._m_position + self._m_velocity*dt
         self._m_trayectory.append(self._m_position)
         
-    def _calculate_new_velocity(self, dt):
-        acceleration = self._calculate_aceleration(bodies)
-        self._m_velocity += acceleration * dt
+    def calculate_new_velocity(self, dt, bodies):
+        acceleration = self.calculate_acceleration(bodies)
+        self._m_velocity = self._m_velocity + acceleration * dt
 
-    def _print_info(self):
+    def print_info(self):
         # Print information about the celestial body
         pass
+    """
+    def update_state(self, dt, bodies):
+        acceleration = self.calculate_acceleration(bodies)
+        self._m_position = self._m_position + self._m_velocity * dt
+        self._m_velocity = self._m_velocity + acceleration * dt
+        
+"""
