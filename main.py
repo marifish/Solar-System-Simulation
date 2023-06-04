@@ -47,7 +47,7 @@ for i in df.index:
     bodies.append(body)
     
 dt      = 24*60*60*10
-seconds = 24*60*60*100000
+seconds = 24*60*60*1000
 for i in range(0,seconds,dt):
     for body in bodies:    
        body.calculate_new_position(dt)
@@ -57,7 +57,21 @@ for i in range(0,seconds,dt):
 import matplotlib.pyplot as plt
 
 for body in bodies:
+    df_temp = pd.DataFrame(body.get_trayectory(), columns=(["Position X (m)","Position Y (m)","Position Z (m)"]))
+    df_temp.to_csv(f"data/simulations/{body.get_name()}.csv")
     data = np.transpose(body.get_trayectory())
     plt.plot(data[0], data[1])
+    
+    
+    
 plt.show()
+
+
+
+
+
+
+
+
+
 
