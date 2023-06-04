@@ -10,7 +10,6 @@ import os
 currentDir  = os.path.dirname(os.path.realpath(__file__))
 os.chdir(currentDir)
 
-
 from CelestialBody import *
 from Surface import *
 from Ring import *
@@ -21,3 +20,4 @@ from Star import *
 from Moon import *
 from GasPlanet import *
 from RockyPlanets import *
+from StellarSystem import *

@@ -104,10 +104,3 @@ class CelestialBody:
     def print_info(self):
         # Print information about the celestial body
         pass
-    """
-    def update_state(self, dt, bodies):
-        acceleration = self.calculate_acceleration(bodies)
-        self._m_position = self._m_position + self._m_velocity * dt
-        self._m_velocity = self._m_velocity + acceleration * dt
-        
-"""

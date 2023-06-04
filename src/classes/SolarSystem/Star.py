@@ -1,9 +1,22 @@
 from CelestialBody import *
+
 class Star(CelestialBody):
-    def __init__(self, name, shape, position, velocity, radius, mass, color, elements, star_type, brightness, temperature):
+    def __init__(self,
+                 name        = "sun",
+                 shape       = "spherical",
+                 position    = np.array([0,0,0]),
+                 velocity    = np.array([0,0,0]),
+                 radius      = 1000,
+                 mass        = 1000,
+                 color       = "red",
+                 elements    = [],
+                 star_type   = "Yellow dwarf star",
+                 brightness  = 4.83,
+                 temperature = 15.7e6):
+        
         super().__init__(name, shape, position, velocity, radius, mass, color, elements)
-        self._m_type = star_type
-        self._m_brightness = brightness
+        self._m_type        = star_type
+        self._m_brightness  = brightness
         self._m_temperature = temperature
 
     # Getters
