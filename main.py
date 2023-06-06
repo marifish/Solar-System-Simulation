@@ -41,18 +41,15 @@ def build_bodies(Body_class, file_name = ""):
     return bodies
 
 
-
 planets = build_bodies(Body_class = Planet,
                        file_name = "data/planets_data_june_04_2023_01h_41m_34s_GTM.csv")
 
 sun = build_bodies(Body_class = Star,
-                       file_name = "data/sun_data.csv")
-
+                   file_name = "data/sun_data.csv")
 
 solar_system = StellarSystem(stars = sun, planets = planets)
 
-
-solar_system.gravitational_simulation(days = 1000, dt_days = 10, plot = True)
+solar_system.gravitational_simulation(days = 100000, dt_days = 10, plot = True)
 
 
 

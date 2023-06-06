@@ -4,7 +4,6 @@ Created on Fri Jun  2 08:32:29 2023
 
 @author: an.medinacolmenero
 """
-
 import os
 
 currentDir  = os.path.dirname(os.path.realpath(__file__))

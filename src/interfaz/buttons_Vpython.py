@@ -44,6 +44,7 @@ button3 = button(text="Play", bind=button_click)
 
 
 # Create background 
+"""
 num_stars = 1000
 stars = []
 
@@ -57,7 +58,7 @@ for _ in range(num_stars):
                   emissive=True,
                   shininess=0)
     stars.append(star)
-
+"""
 
 #Create 
 mRadius=2
