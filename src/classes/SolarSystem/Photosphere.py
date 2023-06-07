@@ -1,6 +1,6 @@
 from Element import *
 
-class Atmosphere:
+class Photosphere:
     def __init__(self, elements = []):
         self._m_elements = elements
         

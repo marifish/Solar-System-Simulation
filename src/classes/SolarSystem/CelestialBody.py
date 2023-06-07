@@ -11,7 +11,10 @@ class CelestialBody:
                  radius   = 1000, 
                  mass     = 1000,
                  color    = "red",
-                 elements = []):
+                 elements = [],
+                 escape_speed = 1000,
+                 temperature    = 1000,
+                 volume         = 1000):
         
         # Initialize the attributes of the celestial body
         self._m_name       = name
@@ -23,7 +26,9 @@ class CelestialBody:
         self._m_color      = color
         self._m_elements   = elements
         self._m_trayectory = [position]
-
+        self._m_escape_speed = escape_speed
+        self._m_temperature  = temperature
+        self._m_volume       = volume  
     # Getters
     def get_name(self):
         return self._m_name
@@ -101,6 +106,6 @@ class CelestialBody:
         acceleration = self.calculate_acceleration(bodies)
         self._m_velocity = self._m_velocity + acceleration * dt
 
-    def print_info(self):
+    def info(self):
         # Print information about the celestial body
         pass

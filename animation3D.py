@@ -27,7 +27,7 @@ def button_click(evt):
     elif evt.text == "Pause":
         print("Button 2 clicked!")
     elif evt.text == "Play":
-        print("Button 2 clicked!")
+        print("Button 3 clicked!")
         
         
 def Color(red, green, blue):

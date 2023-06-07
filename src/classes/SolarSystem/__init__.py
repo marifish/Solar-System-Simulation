@@ -20,3 +20,4 @@ from Moon import *
 from GasPlanet import *
 from RockyPlanets import *
 from StellarSystem import *
+from Photosphere import *

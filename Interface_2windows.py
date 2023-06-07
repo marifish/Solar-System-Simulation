@@ -1,6 +1,14 @@
 import tkinter as tk 
 from tkinter import ttk 
 from PIL import ImageTk, Image
+import main as m
+from src.classes.SolarSystem import *
+import subprocess as sp
+import threading as td
+
+def run_file():
+    # Code to run your Python file
+    sp.run(['python', 'animation3D.py'])
 
 m_radio=0
 m_volume=0
@@ -349,6 +357,22 @@ def openSimulator():
 #funcion de boton ok
 def timeIntro():
      time=timeInfo.get()
+     planets = m.build_bodies(Body_class = Planet,
+                            file_name = "data/planets_data_june_04_2023_01h_41m_34s_GTM.csv")
+
+     sun = m.build_bodies(Body_class = Star,
+                        file_name = "data/sun_data.csv")
+
+     solar_system = StellarSystem(stars = sun, planets = planets)
+
+     solar_system.gravitational_simulation(days = time, dt_days = 1, plot = True)
+     
+     # Create a new thread
+     thread = td.Thread(target=run_file)
+
+     # Start the thread
+     thread.start()
+     
      print(time)
      
 #para la entrada de tiempo
@@ -359,7 +383,7 @@ timeInfo = tk.IntVar()
 timeEntered = ttk.Entry(master, width=12, textvariable=timeInfo).pack()
 
 #boton ok introduce el periodo para comenzar la simulacion
-button = tk.Button(master,text='Ok',bg='dark gray', fg='white', 
+button = tk.Button(master,text='Star Simulation',bg='dark gray', fg='white', 
                     command=timeIntro).pack(pady=12)
 
 #boton para abrir ventana de simulador desde ventana inicial

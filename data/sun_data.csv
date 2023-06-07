@@ -1,2 +1,2 @@
-﻿Name,Color,Mass (kg),Radius (km),Position X (m),Position Y (m),Position Z (m),Velocity X (km/s),Velocity Y (km/s),Velocity Z (km/s)
-Sun,Yellow,1.99E+30,696340,0,0,0,0,0,0
+﻿Name,Color,Mass (kg),Radius (km),Position X (m),Position Y (m),Position Z (m),Velocity X (km/s),Velocity Y (km/s),Velocity Z (km/s),Volume (10^18 m^3),Escape Velocity (km/s),Temperature (°C),Photosphere Temperature (°C),Corona Temperature (°C),Luminosity (L☉)
+Sun,Yellow,1.99E+30,696340,0,0,0,0,0,0,"1,409,000",617.7,"5,500","5,500","2,000,000","1,048,576"

@@ -4,7 +4,7 @@ Created on Fri May 26 13:32:54 2023
 
 @author: an.medinacolmenero
 """
-import subprocess
+import subprocess as sp
 import threading as td
 
 def run_file():

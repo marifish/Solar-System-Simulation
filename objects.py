@@ -8,7 +8,7 @@ os.chdir(currentDir)
 
 print (os.getcwd())
 
-def build_bodies(Body_class, file_name = ""):
+def build_planets(Body_class, file_name = ""):
     
     df_bodies = pd.read_csv(file_name)
 
@@ -25,16 +25,38 @@ def build_bodies(Body_class, file_name = ""):
                              body_data["Position Y (m)"],
                              body_data["Position Z (m)"]])
         
+        sun_distance = body_data["Distance from Sun (km)"]
+  
+        
         velocity = 1000 * np.array([body_data["Velocity X (km/s)"],
                                     body_data["Velocity Y (km/s)"],
                                     body_data["Velocity Z (km/s)"]])
+        
+        df_atm_composition = pd.read_csv(f"data/elements/{name.lower()}_composition.csv")
+        for i in df_atm_composition.index:
+            atm_element = df_atm_composition.loc[i]
+            
+            element = Element(name = atm_element["Name"])
+        
+        
+        
+        
+        
         
         body = Body_class(name     = name,
                           position = position,
                           velocity = velocity,
                           radius   = radius,
                           mass     = mass,
-                          color    = color)
+                          color    = color,
+                          elements   = [],
+                          escape_speed = 1000,
+                          temperature  = 1000,
+                          volume       = 1000,
+                          atmosphere   = [],
+                          moons        = [],
+                          sun_distance = 1000,
+                          num_satellites = 0)
 
         bodies.append(body)
     
