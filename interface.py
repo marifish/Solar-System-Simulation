@@ -57,13 +57,12 @@ def openSimulator():
         my_notebook.add(my_frame1, text='Physical characteristics')
         my_notebook.add(my_frame2, text='Photospheric composition')
         
-        label1 = tk.Label(my_frame1, text= sun[0].info(), font=('OCR A Extended',13), bg='black',fg='white').pack(pady=40,anchor='n',padx=15)
+        label1 = tk.Label(my_frame1, text= sun[0].info(), font=('OCR A Extended',13), bg='black',fg='white').pack(pady=45,anchor='n',padx=15)
         label2 = tk.Label(my_frame2, text= sun[0].get_photosphere().info_elements(), 
-                      font=('OCR A Extended',13),bg='black',fg='white').pack(pady=40,anchor='n',padx=15)
+                      font=('OCR A Extended',13),bg='black',fg='white').pack(pady=30,anchor='n',padx=15)
         label3 = tk.Label(my_frame1, image=image1, height=290, width=290).pack(anchor='se',padx=10)
         label4 = tk.Label(my_frame2, image=image1, height=290, width=290).pack(anchor='se',padx=10)
 
-    #sbutton = tk.Button(my_frame1, text='See more', command=webbrowser.open_new_tab(url1)).pack(anchor='sw')
         sun_frame.pack(fill='both',expand=1) 
     
     def mercury_page():
@@ -101,9 +100,9 @@ def openSimulator():
         my_notebook.add(my_frame2, text='Atmosphere')
         label1 = tk.Label(my_frame1, text= planets[1].info(), font=('OCR A Extended',13), bg='black',fg='white').pack(pady=40,anchor='n',padx=15)
         label2 = tk.Label(my_frame2, text= planets[1].get_atmosphere().info_elements() ,
-                              font=('OCR A Extended',13),bg='black',fg='white').pack(pady=40,anchor='n')
+                              font=('OCR A Extended',13),bg='black',fg='white').pack(pady=10,anchor='n')
         label3 = tk.Label(my_frame1, image=image3, height=280, width=280).pack(anchor='se', padx=12)
-        label4 = tk.Label(my_frame2, image=image3, height=280, width=280).pack(anchor='se', padx=12)
+        label4 = tk.Label(my_frame2, image=image3, height=285, width=280).pack(anchor='se', padx=12)
         venus_frame.pack(fill='both',expand=1)
     
     def earth_page():
@@ -270,10 +269,12 @@ def openSimulator():
                         fg='white', bd=0, bg='black', 
                         command=lambda:indicate(sun_indicate, sun_page))
     sun_button.place(x=10, y=50)
+    
     #color de seleccion del planeta
     sun_indicate = tk.Label(options_frame, text='', bg='black')
     sun_indicate.place(x=3, y=50, width=5, height=40)
 
+    #definiendo cada botón del menú lateral
     mercury_button = tk.Button(options_frame, text='Mercury', font=('OCR A Extended',15),
                         fg='white', bd=0, bg='black', 
                         command=lambda:indicate(mercury_indicate, mercury_page))
@@ -337,7 +338,7 @@ def openSimulator():
     #Barra lateral
     options_frame.pack(side=tk.LEFT)
     options_frame.pack_propagate(False)
-    options_frame.configure(width=110, height=700)
+    options_frame.configure(width=140, height=700)
 
     main_frame = tk.Frame(root, highlightbackground='black', highlightthickness=2)
     main_frame.pack(side=tk.LEFT)
@@ -369,13 +370,11 @@ timeInfo = tk.IntVar()
 timeEntered = ttk.Entry(master, width=12, textvariable=timeInfo).pack()
 
 #boton ok introduce el periodo para comenzar la simulacion
-button = tk.Button(master,text='Star Simulation',bg='dark gray', fg='white', 
+button = tk.Button(master,text='Start Simulation',bg='dark gray', fg='white', 
                     command=timeIntro).pack(pady=12)
 
 #boton para abrir ventana de simulador desde ventana inicial
 button1 = tk.Button(master, text='Bodies info' , bg='dark gray', fg='white', 
-                    command=openSimulator).pack(anchor='se',side='bottom')
-
-
+                    command=openSimulator).pack(anchor='se',side='bottom', pady=6, padx=6)
 
 master.mainloop()
