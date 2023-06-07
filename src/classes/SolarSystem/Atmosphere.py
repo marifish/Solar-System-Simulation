@@ -11,11 +11,13 @@ class Atmosphere:
         self._m_elements = elements
 
     #Print method
-    def info_lements(self):
-        text_info = "Composition by volume\n\n" 
+    def info_elements(self):
+        text_info = " Atmosphere Composition by volume\n\n" 
         for element in self._m_elements:
-            text_info += element.get_name() + ": " + element.get_percentage() +" %"
+            text_info += element.get_name() + ": " + str(element.get_percentage()) +" %"
             text_info +="\n"
+            
+        return text_info
             
         
         

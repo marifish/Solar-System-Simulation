@@ -1,4 +1,4 @@
-﻿Element,Volume Percentaje
+﻿Element,Volume
 Hydrogen,42
 Helium,42
 Oxygen,15
@@ -7,6 +7,3 @@ Potassium,0.01
 Argon,0.007
 Carbon Dioxide,0.003
 Nitrogen,0.0027
-,
-,
-,

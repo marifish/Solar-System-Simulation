@@ -40,13 +40,13 @@ class Planet(CelestialBody):
     #Print method
     def info(self):
         physical_characteristics = (f'Physical characteristics:\n\n' +
-                                    f'Mean radius: {self_m_radius/1000:.2f} km\n'+
-                                    f'Mass: {_m_mass:.2f} kg\n'+
-                                    f'Escape velocity: %d km/s\n'+
-                                    f'Position: %d m \n'+
-                                    f'Surface gravity: %d m/s^2\n'+
-                                    f'Temperature: 437 K\n'+
-                                    f'Satellites: %d')
+                                    f'Mean radius: {self._m_radius/1000:.2f} km\n'+
+                                    f'Mass: {self._m_mass} kg\n'+
+                                    f'Escape velocity: {self._m_escape_speed} km/s\n'+
+                                    f'Distance from Sun: {self._m_sun_distance}  m \n'+
+                                    #f'Surface gravity: %d m/s^2\n'+
+                                    f'Temperature: {self._m_temperature} °C\n'+
+                                    f'Number of Satellites: {self._m_num_satellites} ')
         
         return physical_characteristics
         
