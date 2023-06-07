@@ -354,7 +354,6 @@ def timeIntro():
 
      solar_system.gravitational_simulation(days = time, dt_days = 1, plot = True)
      
-     # Create a new thread
      thread = td.Thread(target=run_file)
 
      # Start the thread
@@ -374,7 +373,7 @@ button = tk.Button(master,text='Star Simulation',bg='dark gray', fg='white',
                     command=timeIntro).pack(pady=12)
 
 #boton para abrir ventana de simulador desde ventana inicial
-button1 = tk.Button(master, text=' Info bodies', bg='dark gray', fg='white', 
+button1 = tk.Button(master, text='Bodies info' , bg='dark gray', fg='white', 
                     command=openSimulator).pack(anchor='se',side='bottom')
 
 
